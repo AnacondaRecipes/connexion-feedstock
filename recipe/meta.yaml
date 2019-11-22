@@ -1,4 +1,4 @@
-{% set version = "2.4.0" %}
+{% set version = "2.3.0" %}
 
 package:
   name: connexion
@@ -7,19 +7,19 @@ package:
 source:
   fn: {{ version }}.tar.gz
   url: https://github.com/zalando/connexion/archive/{{ version }}.tar.gz
-  sha256: 8573db7d2f00a541eeb77aafd61685a9191d58d905718eb9a7a3ef7751927d20
+  sha256: dbb8ab5627e75ec0764fcab1cbf2c7c8d463e8ab5dc855aa2a4ec396e89f83bd
 
 build:
   number: 0
   noarch: python
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  script: pip install --no-deps -vv .
   entry_points:
     - connexion = connexion.cli:main
 
 requirements:
-  build:
+  host:
     - python >=3
-    - setuptools
+    - pip
     - flake8
 
   run:
