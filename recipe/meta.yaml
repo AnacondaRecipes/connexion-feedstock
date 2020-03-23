@@ -12,14 +12,14 @@ source:
 build:
   number: 0
   noarch: python
-  script: python setup.py install --single-version-externally-managed --record record.txt
+  script: "{{ PYTHON }} -m pip install . -vv"
   entry_points:
     - connexion = connexion.cli:main
 
 requirements:
   build:
     - python >=3.6
-    - setuptools
+    - pip
     - flake8
 
   run:
