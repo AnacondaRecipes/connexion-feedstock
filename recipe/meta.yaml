@@ -17,7 +17,7 @@ build:
     - connexion = connexion.cli:main
 
 requirements:
-  build:
+  host:
     - python >=3.6
     - pip
     - flake8
