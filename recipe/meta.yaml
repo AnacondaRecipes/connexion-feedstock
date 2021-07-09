@@ -1,4 +1,4 @@
-{% set version = "2.6.0" %}
+{% set version = "2.8.0" %}
 
 package:
   name: connexion
@@ -7,7 +7,7 @@ package:
 source:
   fn: {{ version }}.tar.gz
   url: https://github.com/zalando/connexion/archive/{{ version }}.tar.gz
-  sha256: 6f18a187a6b7110ace7af73bce67109204523d3e602cce9c1a0d553ed8d182bd
+  sha256: ec8d429b1a677762158094b169414e9e48dd952db4330cd1583092e25f2e2770
 
 build:
   number: 0
@@ -21,16 +21,22 @@ requirements:
     - python >=3.6
     - pip
     - flake8
+    - setuptools
+    - wheel
 
   run:
     - python >=3.6
-    - clickclick >=1.2
-    - jsonschema >=2.5.1
-    - pyyaml >=5.1
-    - requests >=2.9.1
-    - inflection >=0.3.1
-    - flask >=1.0.4
-    - openapi-spec-validator >=0.2.4
+    - clickclick >=1.2,<21
+    - jsonschema >=2.5.1,<4
+    - pyyaml >=5.1,<6
+    - requests >=2.9.1,<3
+    - inflection >=0.3.1,<0.6
+    - flask >=1.0.4,<2
+    - openapi-spec-validator >=0.2.4,<0.4
+    - werkzeug >=1.0,<2.0
+    - swagger-ui-bundle >=0.0.2,<0.1
+    - aiohttp >=2.3.10,<4
+    - aiohttp-jinja2 >=0.14.0,<2
 
 test:
   imports:
@@ -38,8 +44,13 @@ test:
     - connexion.apis
     - connexion.apps
     - connexion.decorators
+    - connexion.operations
+    - connexion.security
 
+  requires:
+    - pip
   commands:
+    - pip check
     - connexion --version
 
 about:
