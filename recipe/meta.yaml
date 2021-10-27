@@ -12,13 +12,14 @@ source:
 build:
   number: 0
   noarch: python
+  skip: True  # [py<37]
   script: "{{ PYTHON }} -m pip install . -vv"
   entry_points:
     - connexion = connexion.cli:main
 
 requirements:
   host:
-    - python >=3.6
+    - python
     - pip
     - flake8
     - setuptools
@@ -49,6 +50,7 @@ test:
 
   requires:
     - pip
+    - python <3.10
   commands:
     - pip check
     - connexion --version
