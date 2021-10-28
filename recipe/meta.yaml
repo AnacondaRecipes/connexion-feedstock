@@ -12,7 +12,8 @@ source:
 build:
   number: 0
   noarch: python
-  skip: True  # [py<37]
+  # missing dependencies for s390x
+  skip: True  # [py<37 or s390x]
   script: "{{ PYTHON }} -m pip install . -vv"
   entry_points:
     - connexion = connexion.cli:main
