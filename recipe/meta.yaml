@@ -25,6 +25,7 @@ requirements:
     - wheel
     - mccabe >=0.6.0,<0.7.0
     - flake8
+    - importlib-metadata <4.3  # [unix]
 
   run:
     - python
