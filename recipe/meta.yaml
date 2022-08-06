@@ -15,7 +15,8 @@ build:
   entry_points:
     - connexion = connexion.cli:main
   skip: True  # [py<36]
-
+  # inflection >=0.3.1 and <0.6 is not present on s390x
+  skip: True  # [linux and s390x]
 requirements:
   host:
     - python
