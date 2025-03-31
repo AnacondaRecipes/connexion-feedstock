@@ -48,7 +48,8 @@ test:
     - connexion.resources
     - connexion.validators
   commands:
-    - connexion --version
+    - connexion --version  # [unix]
+    - python -m connexion --version  # [win]
     - pip check
 
 about:
