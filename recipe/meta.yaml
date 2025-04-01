@@ -35,6 +35,12 @@ requirements:
     - starlette >=0.35
     - typing-extensions >=4.6.1
     - werkzeug >=2.2.1
+  run_constrained:
+    - a2wsgi >=1.7
+    - flask >=2.2
+    - swagger-ui-bundle >=1.1.0
+    - uvicorn >=0.17.6
+    - jsf >=0.10.0
 
 test:
   requires:
